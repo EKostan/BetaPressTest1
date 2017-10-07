@@ -128,7 +128,7 @@ namespace LongIdentifierTester
             string stringA;
             string stringB;
 
-            TestHelper.GetRandomStringNumber((long)(1024 * 1024 * 1024), out stringA, out stringB);
+            TestHelper.GetRandomStringNumber((long) (1024 * 1024 * 1024 / 2), out stringA, out stringB);
 
             IdController.InitAlphaNumericIdentifier(_alphaNumericIdentifier);
             IdController.Increment(stringA, () => token.IsCancellationRequested);
