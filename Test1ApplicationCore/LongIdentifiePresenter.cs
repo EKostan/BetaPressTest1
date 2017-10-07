@@ -23,8 +23,15 @@ namespace Test1ApplicationCore
 
         private void ViewInitAlphaNumericIdentifier(object sender, EventArgs e)
         {
-            IdController.InitAlphaNumericIdentifier(_view.AlphaNumericIdentifier);
-            ShowMessage($"ID изменен на {IdController.Identifier}");
+            try
+            {
+                IdController.InitAlphaNumericIdentifier(_view.AlphaNumericIdentifier);
+                ShowMessage($"ID изменен на {IdController.Identifier}");
+            }
+            catch (Exception exception)
+            {
+                ShowError($"Ошибка: {exception.Message}");
+            }
         }
 
         private void ShowMessage(string message)
@@ -48,7 +55,7 @@ namespace Test1ApplicationCore
             }
             catch (Exception exception)
             {
-                ShowError($"Ошибка инкрементирования {exception.Message}");
+                ShowError($"Ошибка: {exception.Message}");
             }
         }
     }
